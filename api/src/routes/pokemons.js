@@ -19,7 +19,9 @@ allDataByName = pokemonsByName.map(data =>{
         weight: data.weight,
         image: data.sprites.other.dream_world.front_default,
         hp: data.stats[0].base_stat,
+        attack: data.stats[1].base_stat,
         life: data.stats[2].base_stat,
+        speed: data.stats[5].base_stat,
         types: data.types.map((data) => data.type.name).join(", "),
 
     }
@@ -41,13 +43,14 @@ try{
 
     const pokeData = resolvePromises.map((pokemon) => {
         return {
-            // id: pokemon.data.id,
+            id: pokemon.data.id,
             name: pokemon.data.name,
-            // weight: pokemon.data.weight,
-            // height: pokemon.data.height,
+            weight: pokemon.data.weight,
+            height: pokemon.data.height,
             image: pokemon.data.sprites.other.dream_world.front_default,
             hp: pokemon.data.stats[0].base_stat,
             types: pokemon.data.types.map((data) => data.type.name).join(", "),
+            attack: pokemon.data.stats[1].base_stat
         }
     })
 
@@ -57,21 +60,21 @@ try{
 
     })
 
-
     finalList = pokeData.concat(dbPokemons)
 
     res.status(200).json(finalList);
+    
 } catch(e) {
     console.log(e);
 }
 });
 
 
-router.get("/:idPokemon", async (req, res) => {
-const {idPokemon} = req.params;
+router.get("/:id", async (req, res) => {
+const {id} = req.params;
 const pokeById = [];
 try {
-    const pokeId = await axios.get(`${API}/${idPokemon}`)
+    const pokeId = await axios.get(`${API}/${id}`)
     pokeId.data.forms.forEach((data) => pokeById.push(data.url));
 
 const IdPromises = [];
@@ -94,7 +97,7 @@ const IdPokemons = resolveIdPromises.map((poke) => {
 
 })
 res.status(200).json(IdPokemons)
-console.log(poke.data.pokemon)
+
 
 }catch(e) {
     console.log(e);

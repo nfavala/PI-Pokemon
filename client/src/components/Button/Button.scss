@@ -1,0 +1,66 @@
+.main {
+	background: rgb(243, 229, 26);
+    border: 0 none;
+    border-radius: 10%;
+    box-shadow: 0 10px 20px black;
+    cursor: pointer;
+    color: rgb(15, 15, 15);
+    font-family: "Quicksand", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    margin: -20px 1px;
+    padding: 20px 10px;
+    width: 150px;
+
+	&:hover,
+	&:focus {
+		box-shadow: 0 2px 5px 0 rgb(10, 10, 10), 0 0 0 3px rgb(26, 40, 243);
+	}
+}
+
+.secondary {
+	border-radius: 10%;
+    border: none;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+    font-weight: bold;
+	font-size: 18px;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 900;
+    text-align: center;
+	transition: all .3s;
+	padding: 25px 10px 22px 10px;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+        background: rgba(44, 130, 201, 1);     
+        z-index: -2;
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		background: rgb(243, 229, 26);
+		transition: all .3s;
+		border-radius: 10%;
+		z-index: -1;
+	}
+	&:hover {
+		color:  rgba(44, 130, 201, 1);  
+		&:before {
+			width: 100%;
+		}
+	}
+}
+

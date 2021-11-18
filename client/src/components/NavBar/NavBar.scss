@@ -1,0 +1,36 @@
+.navBar{
+    position: relative;
+    height: 9px;
+    max-width: 100%;
+    margin-left: 100px ;
+    padding: 0 7rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background: rgba(236, 240, 241, 1);
+    box-shadow: 0rem 0.1875rem 0.375rem rgba(108, 122, 137, 1);
+
+    .homeButton{
+        background: transparent;
+        border: 0;
+    }
+
+    .imgHome{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 10rem;
+        margin-bottom: .25rem;
+        cursor: pointer;
+    }
+}
+.navbar-header{
+        display: flex;
+        background-color:  rgb(243, 229, 26);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
